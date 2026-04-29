@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LYAUW ROOM PLT | 极致共情的第三空间</title>
+    <title>Lyauw Room | 你的专属安心角落</title>
     <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #F5F5DC;      [span_3](start_span)/* 暖沙色 Warm Linen[span_3](end_span) */
-            --text-main: #3E2723;    [span_4](start_span)/* 深咖啡色 Deep Espresso[span_4](end_span) */
-            --accent-color: #FFBF00; [span_5](start_span)/* 琥珀金 Sun-Dappled Amber[span_5](end_span) */
+            --bg-color: #F5F5DC;      /* 品牌规范：暖沙色 */
+            --text-main: #3E2723;    /* 品牌规范：深咖啡色 */
+            --accent-color: #FFBF00; /* 品牌规范：琥珀金 */
             --box-bg: #FFFFFF;
             --font-serif: 'Lora', serif;
             --font-sans: 'Inter', sans-serif;
@@ -37,33 +37,31 @@
         }
 
         nav {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 20px;
+            padding: 12px 20px;
         }
 
         .logo img {
-            height: 50px;
+            height: 55px;
             width: auto;
             display: block;
         }
 
-        /* 桌面端菜单 */
         .nav-links {
             display: flex;
         }
 
         .nav-links a {
-            margin-left: 35px;
+            margin-left: 30px;
             text-decoration: none;
             color: var(--text-main);
             font-size: 13px;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            font-weight: 500;
             transition: color 0.3s;
         }
 
@@ -77,64 +75,65 @@
             color: var(--text-main);
         }
 
-        [span_6](start_span)/* 通用布局[span_6](end_span) */
+        /* 通用布局 */
         section {
             padding: 120px 20px;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        h1, h2, h3 {
+        h1, h2 {
             font-family: var(--font-serif);
             font-weight: 400;
+            color: var(--text-main);
         }
 
-        h2 { font-size: 32px; text-align: center; margin-bottom: 60px; }
+        h2 { font-size: 32px; text-align: center; margin-bottom: 50px; }
 
-        /* Hero Section */
+        /* 首页 Hero */
         #home {
-            height: 80vh;
+            height: 75vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: center;
         }
 
-        #home h1 { font-size: 48px; margin-bottom: 10px; }
-        .subtitle { font-size: 18px; opacity: 0.7; font-style: italic; margin-bottom: 40px; }
+        #home h1 { font-size: 46px; margin-bottom: 15px; }
+        .subtitle { font-size: 18px; color: #888; margin-bottom: 40px; font-style: italic; }
 
-        [span_7](start_span)[span_8](start_span)/* 服务模块[span_7](end_span)[span_8](end_span) */
-        .service-card {
+        /* 服务卡片 */
+        .service-container {
             background-color: var(--box-bg);
-            padding: 60px;
+            padding: 50px;
             margin-bottom: 40px;
-            box-shadow: 0 15px 45px rgba(62, 39, 35, 0.03);
-            border-radius: 2px;
+            box-shadow: 0 10px 40px rgba(62, 39, 35, 0.03);
         }
 
-        .lang-en { display: block; font-size: 14px; color: #888; margin-top: 10px; }
-
-        [span_9](start_span)/* 预约卡片[span_9](end_span) */
+        /* 预约卡片 */
         .booking-card {
-            background-image: linear-gradient(rgba(245, 245, 220, 0.8), rgba(245, 245, 220, 0.8)), url('booking-bg.png');
+            background-image: linear-gradient(rgba(245, 245, 220, 0.85), rgba(245, 245, 220, 0.85)), url('booking-bg.png');
             background-size: cover;
             background-position: center;
-            padding: 100px 40px;
+            padding: 80px 40px;
             text-align: center;
-            border: 1px solid rgba(62, 39, 35, 0.1);
+            border-radius: 2px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.05);
+            max-width: 700px;
+            margin: 0 auto;
         }
 
         .booking-btn {
             display: inline-block;
-            margin-top: 30px;
-            padding: 20px 60px;
+            margin-top: 35px;
+            padding: 20px 50px;
             background-color: var(--text-main);
-            color: #FFF;
+            color: #FFFFFF;
             text-decoration: none;
             font-size: 14px;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
-            transition: all 0.3s;
+            transition: all 0.4s ease;
         }
 
         .booking-btn:hover {
@@ -160,82 +159,86 @@
             z-index: 1001;
             transition: transform 0.3s;
         }
-        .wa-float:hover { transform: scale(1.1); }
 
-        /* 移动端菜单样式 */
+        /* 移动端适配 */
         @media (max-width: 768px) {
             .nav-links {
-                display: none; /* 默认隐藏 */
+                display: none;
                 position: absolute;
-                top: 70px;
+                top: 79px;
                 left: 0;
                 width: 100%;
                 background: var(--bg-color);
                 flex-direction: column;
                 text-align: center;
                 padding: 20px 0;
-                border-bottom: 1px solid rgba(0,0,0,0.1);
+                border-bottom: 1px solid rgba(0,0,0,0.05);
             }
             .nav-links.active { display: flex; }
-            .nav-links a { margin: 15px 0; }
+            .nav-links a { margin: 15px 0; margin-left: 0; }
             .menu-toggle { display: block; }
-            #home h1 { font-size: 32px; }
-            .service-card { padding: 30px; }
+            #home h1 { font-size: 34px; }
+            section { padding: 80px 20px; }
         }
 
-        footer { text-align: center; padding: 60px; font-size: 10px; letter-spacing: 2px; opacity: 0.6; }
+        footer { text-align: center; padding: 80px 20px; font-size: 11px; letter-spacing: 2px; color: #AAA; text-transform: uppercase; }
     </style>
 </head>
 <body>
 
     <header>
         <nav>
-            <a href="#home" class="logo"><img src="logo.png" alt="Lyauw Room"></a>
+            <a href="#home" class="logo"><img src="logo.png" alt="Lyauw Room Logo"></a>
             <div class="menu-toggle" id="mobile-menu"><i class="fas fa-bars"></i></div>
             <div class="nav-links" id="nav-list">
                 <a href="#about">About</a>
-                <a href="#listen">Listening</a>
-                <a href="#talk">Dialogue</a>
+                <a href="#listen">Listen</a>
+                <a href="#talk">Talk</a>
                 <a href="#booking">Booking</a>
             </div>
         </nav>
     </header>
 
     <section id="home">
-        <h1>极致共情，注入色彩</h1>
-        <p class="subtitle">Bringing color back into your life through radical empathy.</p>
-        [span_10](start_span)<p>提供一个独立于家庭与工作之外的“第三空间”避风港[span_10](end_span)。</p>
+        <h1>你的专属安心角落</h1>
+        <p class="subtitle">留白一段专属于你的时光</p>
+        <p>在 Lyauw Room，我们提供一个剥离社交压力的「第三空间」。无论你想倾诉还是理清思绪，这里只有真诚的陪伴，没有先入为主的评判。</p>
     </section>
 
     <section id="about">
-        <h2>关于我们 | About Us</h2>
-        <div class="service-card">
-            [span_11](start_span)[span_12](start_span)<p>我们相信人类最深层的需求是被理解。我们不仅是顾问，更是专业的观察者与对话者[span_11](end_span)[span_12](end_span)。</p>
-            <span class="lang-en">We believe the most profound human need is to be understood. [span_13](start_span)We provide a sanctuary where you can simply exist and be heard[span_13](end_span).</span>
+        <h2>人与人的连接，本该温暖</h2>
+        <div class="service-container">
+            <p>在这个快节奏的社会，我们往往很难找到一个可以完全卸下防备的地方。Lyauw Room 的诞生，是为了给这个世界增添一份温暖色彩。</p>
+            <p style="font-size: 14px; color: #888; border-top: 1px solid #F0F0F0; padding-top: 25px;">
+                <strong>温馨提示</strong><br>
+                我们并非专业心理辅导机构，而是你的「付费专属朋友」。一个完全客观、保密且尊重你的倾诉对象。
+            </p>
         </div>
     </section>
 
     <section id="listen">
-        <h2>倾听室 | The Listening Room</h2>
-        <div class="service-card">
-            [span_14](start_span)[span_15](start_span)<p>有时候，您需要的不是建议，而是一个听众。我们的服务旨在帮助您在宁静中找回自我[span_14](end_span)[span_15](end_span)。</p>
-            <span class="lang-en">Sometimes, the solution isn’t advice; it’s an audience. [span_16](start_span)Our sole purpose is to hold space for your thoughts[span_16](end_span).</span>
+        <h2>听 · 纯粹的聆听</h2>
+        <div class="service-container">
+            <p>生活中的很多话，不适合对身边的人说。在这里，你可以绝对安心地倾吐所有的不满、压力和秘密。我们游离在你的现实关系网之外，你的话语在这里是绝对安全的。</p>
         </div>
     </section>
 
     <section id="talk">
-        <h2>对话空间 | The Dialogue Space</h2>
-        <div class="service-card">
-            [span_17](start_span)[span_18](start_span)<p>通过有条理的深度对话，我们将零散的思绪转化为行动的动力[span_17](end_span)[span_18](end_span)。</p>
-            [span_19](start_span)<span class="lang-en">Through structured, high-level dialogue, we turn fragmented ideas into actionable momentum[span_19](end_span).</span>
+        <h2>说 · 思绪的梳理</h2>
+        <div class="service-container">
+            <p>有时候，你需要的不是答案，而是陪你一起理清线团的人。我们以朋友的身份，提供客观的视角和建议，陪你拨开迷雾，找回内心的清晰。</p>
         </div>
     </section>
 
     <section id="booking">
+        <h2>开启你的专属时光</h2>
         <div class="booking-card">
-            <h2>预约一段时光</h2>
-            <p>Select a moment for yourself.</p>
-            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" target="_blank" class="booking-btn">立即开启对话</a>
+            <p style="font-style: italic; color: #666; margin-bottom: 10px;">“每一次真诚的对话，都值得被认真对待。”</p>
+            <p style="font-size: 15px; color: #777;">点击下方按钮进入预约系统，选择适合你的时间段。</p>
+            
+            <a href="https://calendar.google.com/calendar/u/0/appointments/schedules/AcZssZ1ix-TnTnbzfWNR8o-ZXY1bqenivwTaWR8SnlJG1nFO553VabPqtTV9bAJH6E2yfgjX1CJkD24s?gv=true" target="_blank" class="booking-btn">
+                立即预约对话
+            </a>
         </div>
     </section>
 
@@ -244,12 +247,11 @@
     </a>
 
     <footer>
-        &copy; 2026 LYAUW ROOM PLT (LLP0038243-LGN). <br>
-        PEOPLE FIRST. [span_20](start_span)RADICAL EMPATHY.[span_20](end_span)
+        &copy; 2026 LYAUW ROOM PLT. Bringing color to the world through radical empathy.
     </footer>
 
     <script>
-        // 汉堡菜单交互脚本
+        // 汉堡菜单交互
         const menuToggle = document.getElementById('mobile-menu');
         const navList = document.getElementById('nav-list');
 
@@ -257,7 +259,7 @@
             navList.classList.toggle('active');
         });
 
-        // 点击链接后自动关闭菜单
+        // 点击导航链接后自动关闭菜单（针对手机端优化）
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navList.classList.remove('active');
@@ -265,5 +267,4 @@
         });
     </script>
 </body>
-                </html>
-                
+</html>
