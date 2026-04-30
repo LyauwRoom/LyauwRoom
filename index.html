@@ -12,6 +12,7 @@
             --text-main: #3E2723;    
             --accent-color: #C08261; 
             --white: #FFFFFF;
+            --card-bg: #FFFBF7; /* 稍微浅一点的卡片底色，增加层次 */
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
             --font-cursive: 'Ma Shan Zheng', cursive; 
@@ -31,11 +32,9 @@
             color: var(--accent-color);
             font-style: normal;
             font-size: 1.2em;
-            margin: 0 4px;
             vertical-align: middle;
         }
 
-        /* 加粗书法体 */
         .cursive-bold {
             font-family: var(--font-cursive);
             color: var(--accent-color);
@@ -69,13 +68,7 @@
             background-position: center;
         }
 
-        .hero h1 {
-            font-family: var(--font-serif);
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
+        .hero h1 { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 20px; font-weight: 700; }
         .hero h2 { font-size: 1.2rem; font-weight: 300; margin-bottom: 40px; opacity: 0.8; }
 
         .about-section {
@@ -84,14 +77,7 @@
             text-align: center;
         }
 
-        /* 字体大小标准化排版 */
-        .about-header { margin-bottom: 40px; }
-        .about-header .line { 
-            font-size: 1.8rem; 
-            display: block; 
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+        .about-header .line { font-size: 1.8rem; display: block; margin-bottom: 10px; letter-spacing: 2px; }
 
         .disclaimer {
             margin-top: 50px;
@@ -104,43 +90,65 @@
             margin-right: auto;
         }
 
+        /* --- 新布局：服务板块 (参考 Copper + Rise) --- */
+        .services-container {
+            padding: 80px 8%;
+            background-color: var(--white);
+        }
+
         .service-row {
             display: flex;
-            align-items: stretch;
-            min-height: 500px;
-            background: var(--white);
+            align-items: center;
+            margin-bottom: 100px;
+            gap: 4%;
         }
 
         .service-row:nth-child(even) { flex-direction: row-reverse; }
 
-        .service-image {
-            flex: 1;
-            background-image: url('booking-bg.png');
-            background-size: cover;
-            background-position: center;
-            min-height: 400px;
+        .service-image-container {
+            flex: 1.2;
+            position: relative;
         }
 
-        .service-text {
-            flex: 1;
-            padding: 80px 8%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .service-image-container img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 80px 0 80px 0; /* 仿图中的圆角切片感 */
+            display: block;
         }
 
-        /* 取消加粗的主标题样式 */
-        .service-text h3 { 
+        .service-content-card {
+            flex: 1;
+            background: var(--card-bg);
+            padding: 60px 50px;
+            box-shadow: 15px 15px 0px var(--bg-color); /* 偏向一侧的块状投影 */
+            border: 1px solid rgba(0,0,0,0.03);
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-content-card h3 { 
             font-family: var(--font-serif); 
             font-size: 2.2rem; 
-            margin-bottom: 25px; 
+            margin-bottom: 20px; 
             color: var(--text-main);
             font-weight: 400; 
         }
 
-        .service-text ul { list-style: none; margin-top: 25px; }
-        .service-text ul li { margin-bottom: 12px; font-weight: 500; }
+        .service-content-card p { font-size: 1.05rem; margin-bottom: 20px; color: #5D4037; }
 
+        .service-content-card ul { list-style: none; }
+        .service-content-card ul li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; }
+        .service-content-card ul li::before { 
+            content: ""; 
+            width: 8px; height: 8px; 
+            background: var(--accent-color); 
+            margin-right: 12px; 
+            border-radius: 50%;
+        }
+
+        /* --- 预约与底部 --- */
         .booking-section {
             padding: 100px 8%;
             text-align: center;
@@ -160,7 +168,6 @@
         }
         .booking-btn:hover { background: var(--accent-color); transform: translateY(-3px); }
 
-        /* 清爽的 WhatsApp 悬浮按钮 */
         .wa-float {
             position: fixed;
             bottom: 30px;
@@ -176,10 +183,8 @@
             font-size: 32px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             z-index: 2000;
-            transition: 0.3s;
             text-decoration: none;
         }
-        .wa-float:hover { transform: scale(1.1); }
 
         footer {
             background: var(--white);
@@ -190,9 +195,14 @@
             letter-spacing: 2px;
         }
 
+        /* Mobile View (上下排版) */
         @media (max-width: 992px) {
-            .service-row, .service-row:nth-child(even) { flex-direction: column; }
-            .service-image { min-height: 300px; }
+            .service-row, .service-row:nth-child(even) { flex-direction: column; margin-bottom: 60px; }
+            .service-image-container { width: 100%; margin-bottom: -40px; } /* 让卡片向上叠加一点 */
+            .service-image-container img { height: 300px; border-radius: 40px 0 40px 0; }
+            .service-content-card { width: 90%; margin: 0 auto; padding: 40px 30px; box-shadow: 10px 10px 0px var(--bg-color); }
+            .service-content-card h3 { font-size: 1.8rem; }
+            .about-section { padding: 80px 8%; }
         }
     </style>
 </head>
@@ -223,30 +233,38 @@
         </div>
     </section>
 
-    <section class="service-row">
-        <div class="service-text">
-            <h3><span class="cursive-bold">听</span> · 纯粹的聆听</h3>
-            <p>生活充满压力，但不是所有的话，都适合对身边的人说。在这里，我们提供纯粹的<span class="cursive">听</span>服务。因为我们完全游离在你的关系网之外，你可以绝对安心地倾吐不满与秘密。</p>
-            <ul>
-                <li>零评判：不对你的情绪贴标签</li>
-                <li>绝对安全：你的秘密止于这个房间</li>
-                <li>彻底释放：痛快地说出心里话</li>
-            </ul>
+    <section class="services-container">
+        
+        <div class="service-row">
+            <div class="service-image-container">
+                <img src="booking-bg.png" alt="Pure Listening">
+            </div>
+            <div class="service-content-card">
+                <h3><span class="cursive-bold">听</span> · 纯粹的聆听</h3>
+                <p>生活充满压力，但不是所有的话，都适合对身边的人说。在这里，我们提供纯粹的<span class="cursive">听</span>服务。因为我们完全游离在你的关系网之外，你可以绝对安心地倾吐不满与秘密。</p>
+                <ul>
+                    <li>零评判：不对你的情绪贴标签</li>
+                    <li>绝对安全：你的秘密止于这个房间</li>
+                    <li>彻底释放：痛快地说出心里话</li>
+                </ul>
+            </div>
         </div>
-        <div class="service-image"></div>
-    </section>
 
-    <section class="service-row">
-        <div class="service-text">
-            <h3><span class="cursive-bold">说</span> · 理清思绪</h3>
-            <p>有时候，脑海中的线团缠绕得太紧，你需要一个人帮你一起理清。我们的<span class="cursive">说</span>服务专注于陪伴与梳理，分享不同的视角与建议，帮助你拨开迷雾。</p>
-            <ul>
-                <li>专属朋友：提供客观的外部视角</li>
-                <li>真诚陪伴：找回内心的平静</li>
-                <li>不作代领：尊重你的每一个选择</li>
-            </ul>
+        <div class="service-row">
+            <div class="service-image-container">
+                <img src="booking-bg.png" alt="Genuine Talk">
+            </div>
+            <div class="service-content-card">
+                <h3><span class="cursive-bold">说</span> · 理清思绪</h3>
+                <p>有时候，脑海中的线团缠绕得太紧，你需要一个人帮你一起理清。我们的<span class="cursive">说</span>服务专注于陪伴与梳理，分享不同的视角与建议，帮助你拨开迷雾。</p>
+                <ul>
+                    <li>专属朋友：提供客观的外部视角</li>
+                    <li>真诚陪伴：找回内心的平静</li>
+                    <li>不作代领：尊重你的每一个选择</li>
+                </ul>
+            </div>
         </div>
-        <div class="service-image"></div>
+
     </section>
 
     <section class="booking-section">
