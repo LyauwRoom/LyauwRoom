@@ -60,10 +60,20 @@
         .hero h2 { font-size: 1.2rem; font-weight: 300; margin-bottom: 40px; opacity: 0.8; }
         .hero p { max-width: 800px; margin: 0 auto; font-size: 1.05rem; }
 
-        /* 2. 关于我们 */
+        /* --- 2. 关于我们 (优化间距) --- */
         .about-section { background: var(--white); padding: 100px 10%; text-align: center; }
-        .about-header { margin-bottom: 40px; }
-        .about-header .line { font-size: 1.8rem; display: block; margin-bottom: 10px; letter-spacing: 2px; }
+        
+        .about-header { 
+            margin-bottom: 40px; 
+            line-height: 1.2; /* 缩小行高，让两行文字靠得更近 */
+        }
+        
+        .about-header .line { 
+            font-size: 1.8rem; 
+            display: block; 
+            margin-bottom: 5px; /* 进一步压缩行与行之间的间距 */
+            letter-spacing: 2px; 
+        }
 
         .disclaimer {
             margin-top: 50px;
@@ -76,7 +86,7 @@
             margin-right: auto;
         }
 
-        /* --- 核心布局：服务板块 v1.1.02 --- */
+        /* --- 3. 服务板块 --- */
         .services-container {
             padding: 80px 5%;
             background-color: var(--white);
@@ -91,7 +101,6 @@
             gap: 20px;
         }
 
-        /* 桌面端交错逻辑 */
         .service-row:nth-child(even) { flex-direction: row-reverse; }
 
         .service-image-container {
@@ -131,7 +140,7 @@
             content: ""; width: 8px; height: 8px; background: var(--accent-color); margin-right: 12px; border-radius: 50%;
         }
 
-        /* --- 移动端强制排版 --- */
+        /* 移动端强制排版 */
         @media (max-width: 768px) {
             .service-row, .service-row:nth-child(even) {
                 flex-direction: column !important;
@@ -151,6 +160,7 @@
                 box-shadow: 10px 10px 0px var(--bg-color);
                 z-index: 2;
             }
+            .about-header .line { font-size: 1.5rem; }
         }
 
         /* 5. 预约区域 */
