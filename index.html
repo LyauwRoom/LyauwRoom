@@ -8,11 +8,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
-            --bg-color: #F5F5DC;      
-            --text-main: #3E2723;    
-            --accent-color: #C08261; 
+            /* 基础色调 */
+            --bg-sand: #F5F5DC;      /* 品牌暖沙色 */
+            --text-main: #3E2723;    /* 深咖啡色 */
             --white: #FFFFFF;
-            --card-bg: #FFFBF7;
+            
+            /* v1.1.04 核心色彩更新：Lyauw Theme Green (深绿) */
+            --bg-dark-green: #1B5E20; /* 深度绿：提供高对比度与专业感 */
+            
+            /* 强调色与卡片 */
+            --accent-clay: #C08261;  /* 陶土红 (用于书法体强调) */
+            --card-bg-light: #FFFBF7; /* 卡片浅底色 */
+            
+            /* 字体定义 */
             --font-serif: 'Playfair Display', serif;
             --font-sans: 'Inter', sans-serif;
             --font-cursive: 'Ma Shan Zheng', cursive; 
@@ -22,15 +30,15 @@
         
         body {
             font-family: var(--font-sans);
-            background-color: var(--bg-color);
+            background-color: var(--bg-sand); /* 页面基础背景仍为暖沙色 */
             color: var(--text-main);
             line-height: 1.8;
             overflow-x: hidden;
         }
 
         /* 文字样式 */
-        .cursive { font-family: var(--font-cursive); color: var(--accent-color); font-size: 1.2em; vertical-align: middle; }
-        .cursive-bold { font-family: var(--font-cursive); color: var(--accent-color); font-weight: bold; font-size: 1.4em; margin-right: 8px; vertical-align: middle; }
+        .cursive { font-family: var(--font-cursive); color: var(--accent-clay); font-size: 1.2em; vertical-align: middle; }
+        .cursive-bold { font-family: var(--font-cursive); color: var(--accent-clay); font-weight: bold; font-size: 1.4em; margin-right: 8px; vertical-align: middle; }
 
         /* 导航 */
         nav {
@@ -48,7 +56,7 @@
         .logo img { height: 42px; width: auto; display: block; }
         .nav-links a { text-decoration: none; color: var(--text-main); font-size: 0.8rem; letter-spacing: 1px; font-weight: 500; }
 
-        /* 1. Hero 区域 */
+        /* 1. Hero 区域 (保持原样) */
         .hero {
             padding: 120px 8% 100px;
             text-align: center;
@@ -60,36 +68,47 @@
         .hero h2 { font-size: 1.2rem; font-weight: 300; margin-bottom: 40px; opacity: 0.8; }
         .hero p { max-width: 800px; margin: 0 auto; font-size: 1.05rem; }
 
-        /* --- 2. 关于我们 (优化间距) --- */
-        .about-section { background: var(--white); padding: 100px 10%; text-align: center; }
-        
-        .about-header { 
-            margin-bottom: 40px; 
-            line-height: 1.2; /* 缩小行高，让两行文字靠得更近 */
+        /* --- 2. 关于我们 (优化为深绿全宽背景) --- */
+        .about-section { 
+            background: var(--bg-dark-green); /* 应用深绿背景 */
+            padding: 100px 10%; 
+            text-align: center; 
+            width: 100vw; /* 强制全宽 */
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            color: var(--white); /* 文字切换为白色以保对比度 */
         }
         
-        .about-header .line { 
-            font-size: 1.8rem; 
-            display: block; 
-            margin-bottom: 5px; /* 进一步压缩行与行之间的间距 */
-            letter-spacing: 2px; 
-        }
+        .about-header { margin-bottom: 40px; line-height: 1.2; }
+        .about-header .line { font-size: 1.8rem; display: block; margin-bottom: 5px; letter-spacing: 2px; }
+        .about-header .cursive { color: var(--accent-clay); } /* 书法体仍保留陶土红 */
 
         .disclaimer {
             margin-top: 50px;
             padding: 35px;
-            background: #FAFAFA;
-            border: 1px solid #F0F0F0;
+            background: rgba(255, 255, 255, 0.05); /* 声明框采用微透明白色 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             text-align: left;
             max-width: 850px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--white);
         }
+        .disclaimer strong { color: var(--accent-clay); } /* 强调文字 */
 
-        /* --- 3. 服务板块 --- */
+        /* --- 3. 服务板块 (优化为深绿全宽背景) --- */
         .services-container {
-            padding: 80px 5%;
-            background-color: var(--white);
+            background: var(--bg-dark-green); /* 应用深绿背景 */
+            padding: 80px 10%;
+            width: 100vw; /* 强制全宽 */
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
         }
 
         .service-row {
@@ -98,7 +117,7 @@
             align-items: center;
             justify-content: center;
             margin-bottom: 100px;
-            gap: 20px;
+            gap: 40px; /* 增加间距 */
         }
 
         .service-row:nth-child(even) { flex-direction: row-reverse; }
@@ -119,52 +138,39 @@
         .service-content-card {
             flex: 1;
             min-width: 350px;
-            background: var(--card-bg);
+            background: var(--card-bg-light); /* 卡片保持浅色以便阅读 */
             padding: 60px 50px;
-            box-shadow: 15px 15px 0px var(--bg-color);
+            box-shadow: 15px 15px 0px rgba(0,0,0,0.2); /* 调整投影颜色以适应深色背景 */
             border: 1px solid rgba(0,0,0,0.03);
-            margin: 20px;
         }
 
         .service-content-card h3 { 
             font-family: var(--font-serif); 
             font-size: 2.2rem; 
             margin-bottom: 25px; 
-            color: var(--text-main);
+            color: var(--text-main); /* 卡片内文字保持深咖啡色 */
             font-weight: 400; 
         }
 
         .service-content-card ul { list-style: none; margin-top: 25px; }
-        .service-content-card ul li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; }
+        .service-content-card ul li { margin-bottom: 12px; font-weight: 500; display: flex; align-items: center; color: var(--text-main); }
         .service-content-card ul li::before { 
-            content: ""; width: 8px; height: 8px; background: var(--accent-color); margin-right: 12px; border-radius: 50%;
+            content: ""; width: 8px; height: 8px; background: var(--accent-clay); margin-right: 12px; border-radius: 50%;
         }
 
-        /* 移动端强制排版 */
+        /* 移动端排版调整 */
         @media (max-width: 768px) {
-            .service-row, .service-row:nth-child(even) {
-                flex-direction: column !important;
-                margin-bottom: 60px;
+            .about-section, .services-container {
+                width: 100%; margin-left: 0; margin-right: 0; left: 0; right: 0; padding: 60px 5%;
             }
-            .service-image-container, .service-content-card {
-                flex: none;
-                width: 100%;
-                min-width: 100%;
-                margin: 0;
-            }
+            .service-row, .service-row:nth-child(even) { flex-direction: column !important; margin-bottom: 60px; }
             .service-image-container img { height: 300px; border-radius: 40px 0 40px 0; }
-            .service-content-card {
-                margin-top: -40px; 
-                width: 92%;
-                padding: 40px 25px;
-                box-shadow: 10px 10px 0px var(--bg-color);
-                z-index: 2;
-            }
+            .service-content-card { margin-top: -40px; width: 92%; padding: 40px 25px; box-shadow: 10px 10px 0px rgba(0,0,0,0.2); z-index: 2; }
             .about-header .line { font-size: 1.5rem; }
         }
 
-        /* 5. 预约区域 */
-        .booking-section { padding: 100px 8%; text-align: center; background: var(--bg-color); }
+        /* 5. 预约区域 (保持原样) */
+        .booking-section { padding: 100px 8%; text-align: center; background: var(--bg-sand); }
         .booking-btn {
             display: inline-block;
             margin-top: 40px;
@@ -232,9 +238,9 @@
                 <h3><span class="cursive-bold">听</span> · 纯粹的聆听</h3>
                 <p>生活充满压力，但不是所有的话，都适合对身边的人说。在这里，我们提供纯粹的<span class="cursive">听</span>服务。因为我们完全游离在你的关系网之外，不认识你故事里的任何人，你可以绝对安心地倾吐所有的不满、压力和秘密。</p>
                 <ul>
-                    <li>零评判：我们只倾听，不对你的情绪和经历贴标签。</li>
-                    <li>绝对安全：你的秘密止于这个房间，绝不会影响你原有的人际关系。</li>
-                    <li>彻底释放：让你把憋在心里的话，痛快地说出来。</li>
+                    <li>零评判：不贴标签。</li>
+                    <li>绝对安全：秘密止于此。</li>
+                    <li>彻底释放：痛快地说出来。</li>
                 </ul>
             </div>
         </div>
@@ -245,11 +251,11 @@
             </div>
             <div class="service-content-card">
                 <h3><span class="cursive-bold">说</span> · 理清思绪</h3>
-                <p>有时候，脑海中的线团缠绕得太紧，你需要一个人帮你一起理清；又或者，你只是单纯地需要一个可以陪你聊聊天的声音。我们的<span class="cursive">说</span>服务专注于陪伴与梳理。我们不会干涉你的人生选择，也不会替你做任何决定。我们会作为你的专属朋友，提供客观的外部视角、分享不同的方法与意见，帮助你拨开迷雾，找回内心的平静与清晰。</p>
+                <p>我们会作为你的专属朋友，提供客观的外部视角、分享不同的方法与意见，帮助你拨开迷雾，找回内心的平静与清晰。</p>
                 <ul>
-                    <li>专属朋友：提供客观的外部视角</li>
-                    <li>真诚陪伴：找回内心的平静</li>
-                    <li>不作代领：尊重你的每一个选择</li>
+                    <li>专属朋友：客观视角。</li>
+                    <li>真诚陪伴：找回平静。</li>
+                    <li>不作代领：尊重选择。</li>
                 </ul>
             </div>
         </div>
