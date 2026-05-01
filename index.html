@@ -4,46 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lyauw Room | 敬请期待</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body, html { height: 100%; width: 100%; overflow: hidden; font-family: 'Inter', sans-serif; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            width: 100%;
+            overflow: hidden; /* 防止出现滚动条 */
+            font-family: 'Inter', sans-serif;
+        }
+
         .under-construction {
             height: 100vh;
             width: 100vw;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            /* 将排版起点设为顶部，并通过 padding-top 推到中间偏上的位置 (25vh) */
+            justify-content: flex-start; 
             align-items: center;
-            /* 背景已更新为 booking-bg.png */
+            padding-top: 25vh; 
+            
+            /* 背景图： booking-bg.png + 暖沙色半透明遮罩 */
             background: linear-gradient(rgba(245, 245, 220, 0.4), rgba(245, 245, 220, 0.4)), url('booking-bg.png') no-repeat center center;
             background-size: cover;
             text-align: center;
-            padding: 20px;
-            color: #3E2723;
+            color: #3E2723; /* 品牌深咖啡色 */
         }
+
         .line-1 {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: clamp(3rem, 8vw, 5rem);
+            font-family: 'Ma Shan Zheng', cursive; /* 书法体 */
+            font-size: clamp(3rem, 8vw, 5rem); /* 基础大小 */
             margin-bottom: 20px;
             letter-spacing: 4px;
-            color: #C08261;
-            text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.8);
+            color: #C08261; /* 品牌陶土红 */
+            /* 已移除白影效果 */
         }
+
         .line-2 {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(1.2rem, 3vw, 1.5rem);
-            font-weight: 300;
+            font-size: clamp(1.5rem, 4vw, 2.5rem); /* 精确设定为第一行的 50% */
+            font-weight: 700; /* 加粗 Bold */
             letter-spacing: 8px;
-            text-indent: 8px;
+            text-indent: 8px; /* 修正 letter-spacing 带来的居中视觉偏移 */
             opacity: 0.9;
         }
     </style>
 </head>
 <body>
+
     <div class="under-construction">
         <div class="line-1">你我的缘分</div>
         <div class="line-2">请期待未来</div>
     </div>
+
 </body>
 </html>
